@@ -43,7 +43,8 @@ class Profile extends Component {
   };
 
   onChangeAvatar = (event) => {
-    // if (event.target.files && event.taget.files[0]) {
+    // const yeah =event.taget.files[0]
+    // if (yeah) {
       const prefixFiletype = event.target.files[0].type.toString();
       if (prefixFiletype.indexOf(LocalStorageStrings.PREFIX_IMAGE) !== 0) {
         this.props.showToast(0, "this is not an image file");
@@ -51,6 +52,8 @@ class Profile extends Component {
       }
       this.newPhoto  = event.target.files[0];
       this.setState({ photoUrl: URL.createObjectURL(event.target.files[0]) });
+      // localStorage.setItem(LocalStorageStrings.PhotoURL,this.newPhoto.URL
+      // );
     // } else {
     //   this.props.showToast(0, "Something went wrong with input file");
     // }
@@ -88,12 +91,13 @@ class Profile extends Component {
       newInfo = {
         name: this.state.name,
         description: this.state.aboutMe,
-        URL: downloadURL,
+        URL: downloadURL
       };
     } else {
       newInfo = {
         name: this.state.name,
         description: this.state.aboutMe,
+        URL: downloadURL,
       };
     }
     firebase
@@ -107,7 +111,10 @@ class Profile extends Component {
           LocalStorageStrings.Description,
           this.state.aboutMe
         );
-          localStorage.setItem(LocalStorageStrings.photoURL, downloadURL);
+        if(isUpdatedPhotoURL){
+          localStorage.setItem(LocalStorageStrings.PhotoURL, downloadURL);
+        }
+         
         
         this.setState({ isLoading: false });
         this.props.showToast(1, "Updated Successfuly");

@@ -63,7 +63,7 @@ class SignUp extends Component {
               localStorage.setItem(LocalStorageStrings.ID, result.user.uid);
               localStorage.setItem(LocalStorageStrings.Name, name);
               localStorage.setItem(LocalStorageStrings.Email, email);
-              localStorage.setItem(LocalStorageStrings.PhotoURL, "");
+              localStorage.setItem(LocalStorageStrings.PhotoURL, 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/nopic.jpg?alt=media&token=b761a372-3913-4d15-bbb1-d0ff54770e57');
               localStorage.setItem(LocalStorageStrings.Description, "");
 
               this.props.history.push("/chat");

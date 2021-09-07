@@ -139,7 +139,7 @@ class LiveChat extends Component {
           ) : null}
 
           <div class='contact-profile'>
-            <img src={this.state.currentPeerUser.URL ? this.state.currentPeerUser.URL : "https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/nopic.jpg?alt=media&token=e941ad65-265e-4671-8f7f-190510ac1644"} />
+            <img src={this.state.currentPeerUser.URL ? this.state.currentPeerUser.URL : "https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/nopic.jpg?alt=media&token=b761a372-3913-4d15-bbb1-d0ff54770e57"} />
             <p>{this.state.currentPeerUser.name}</p>
             <div class='social-media'>
               <i class='fa fa-facebook' aria-hidden='true'></i>
@@ -205,7 +205,9 @@ class LiveChat extends Component {
     );
   }
   onChoosePhoto = (event) =>{
-    if (event.target.files && event.taget.files[0]) {
+    this.currentPhotoFile = event.target.files[0]
+
+    if (this.currentPhotoFile) {
       this.setState({isLoading: true})
       this.currentPhotoFile = event.target.files[0]
       const prefixFiletype = event.target.files[0].type.toString();
@@ -482,29 +484,29 @@ class LiveChat extends Component {
   getGifImage = (value) =>{
     switch(value){
       case 'l1':
-          return ''
+          return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l1.png?alt=media&token=831e5693-bacf-4117-b387-9a17c366bb6b'
       case 'l2':
-          return 'l2 Link from firebase'
+          return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l2.png?alt=media&token=f91ef8f9-5ca9-4f44-b0cb-b40798d2b09c'
       case 'l3':
-          return 'l3 Link from firebase'
+          return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l3.png?alt=media&token=d3f28129-5f0a-4786-a620-38bda9f64939'
       case 'l4':
-        return 'l4 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l4.png?alt=media&token=dc9ee82f-1696-4d6c-b8c5-4514d5e467bd'
       case 'l5':
-        return 'l5 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l5.png?alt=media&token=57aa4340-bd27-4bd6-b7d6-3c56fb862914'
       case 'l6':
-        return 'l6 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l6.png?alt=media&token=5e0610a2-3de2-4f55-abe5-0fa91da9846b'
       case 'l7':
-        return 'l7 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l7.png?alt=media&token=6303ff52-b1f4-4f99-bd55-a5a94ed6b8c7'
       case 'l8':
-        return 'l8 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/l8.png?alt=media&token=00c2fa50-1983-41f2-93aa-fe14d27e8c86'
       case 'm1':
-        return 'm1 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/m1.gif?alt=media&token=3e1a5160-9397-48ce-90a6-c75e24ac6196'
       case 'm2':
-        return 'm2 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/m2.gif?alt=media&token=e92ad011-613e-4a2d-a4ba-8950130cb2a0'
       case 'm3':
-        return 'm3 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/m3.gif?alt=media&token=ed9cedec-7775-440e-b16f-15ef3bca87bb'
       case 'm4':
-        return 'm4 Link from firebase'
+        return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/m4.gif?alt=media&token=9b670589-1f89-4f7c-89ec-b9d705bcc6f8'
       case 'm5':
         return 'https://firebasestorage.googleapis.com/v0/b/chat-app-72544.appspot.com/o/m5.gif?alt=media&token=453f0bbb-3dd3-49e5-9e36-5c86ad6273c7'
     }
